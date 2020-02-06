@@ -4,9 +4,9 @@ resource "aws_vpc" "default" {
   enable_dns_support   = true
 
   tags {
-    Name            = format("%s-vpc", var.env)
+    Name            = format("%s-vpc", var.env_name)
     ManagedBy       = var.manageby
-    EnvironmentName = var.env
+    EnvironmentName = var.env_name
   }
 }
 
@@ -14,7 +14,7 @@ resource "aws_internet_gateway" "default" {
   vpc_id = aws_vpc.default.id
 
   tags = {
-    Name            = format("%s-igw", var.env)
+    Name            = format("%s-igw", var.env_name)
     ManagedBy       = var.manageby
     EnvironmentName = var.env_name
   }
