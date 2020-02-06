@@ -3,7 +3,7 @@ resource "aws_vpc" "default" {
   enable_dns_hostnames = true
   enable_dns_support   = true
 
-  tags {
+  tags = {
     Name            = format("%s-vpc", var.env_name)
     ManagedBy       = var.manageby
     EnvironmentName = var.env_name
